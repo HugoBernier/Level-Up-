@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+    app:
+        build: .
+        container_name: laravel_app
+        working_dir: /app
+        volumes:
+            - ./:/app
+            - ./vendor:/app/vendor
+            - ./node_modules:/app/node_modules
+        ports:
+            - "8000:8000"
+        command: >
+            sh -c "
+              composer install --ignore-platform-reqs &&
+              npm install &&
+              npm run dev &
+              php artisan serve --host=0.0.0.0 --port=8000
+            "
+        environment:
+            - COMPOSER_ALLOW_SUPERUSER=1
