@@ -2,21 +2,17 @@ version: '3.8'
 
 services:
     app:
-        build: .
-        container_name: laravel_app
-        working_dir: /app
-        volumes:
-            - ./:/app
-            - ./vendor:/app/vendor
-            - ./node_modules:/app/node_modules
+        build:
+            context: .
+            dockerfile: docker/Dockerfile
+        image: laravel-dev
         ports:
-            - "8000:8000"
+            - "5173:5173"   # Vite
+            - "8000:8000"   # Laravel
+        volumes:
+            - .:/var/www/html
+        working_dir: /var/www/html
         command: >
-            sh -c "
-              composer install --ignore-platform-reqs &&
-              npm install &&
-              npm run dev &
-              php artisan serve --host=0.0.0.0 --port=8000
-            "
-        environment:
-            - COMPOSER_ALLOW_SUPERUSER=1
+            bash -c "npm install &&
+                     php artisan serve --host=0.0.0.0 --port=8000 &
+                     npm run dev"
