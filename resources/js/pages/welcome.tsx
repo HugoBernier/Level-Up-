@@ -16,7 +16,7 @@ export default function Welcome() {
                 <header className="w-full px-6 pt-6 text-sm lg:px-8">
                     <div className="mx-auto mb-6 flex max-w-[335px] items-center justify-between lg:max-w-4xl">
                         <div className="flex items-center gap-2">
-                            <img src="/level-up.svg" alt="level up !" className="h-12 w-auto" />
+                            <img src="/level-up.svg" alt="level up !" className="h-6 w-auto" />
                             <span className="inline-block text-sm">Level Up !</span>
                         </div>
                     </div>
@@ -28,7 +28,7 @@ export default function Welcome() {
                         <img
                             src="/level-up.svg" 
                             alt="Illustration Level Up"
-                            className="w-80 max-w-xs lg:max-w-md"
+                            className="w-full max-w-xs lg:max-w-md"
                         />
                         <div className="text-center lg:ml-12 lg:text-left">
                             <h1 className="mb-6 text-3xl font-semibold">
@@ -37,29 +37,18 @@ export default function Welcome() {
                             </h1>
 
                             <div className="flex flex-col items-center gap-3 lg:items-start">
-                                {auth && auth.user ? (
-                                    <Link
-                                        href={route('dashboard')}
-                                        className="w-full max-w-xs rounded-md bg-primary px-5 py-2 text-center text-sm font-medium text-white shadow-sm transition hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary"
-                                    >
-                                        Aller au dashboard
-                                    </Link>
-                                ) : (
-                                    <>
-                                        <Link
-                                            href={route('login')}
-                                            className="w-full max-w-xs rounded-md bg-primary px-5 py-2 text-center text-sm font-medium text-white shadow-sm transition hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary"
-                                        >
-                                            Se connecter
-                                        </Link>
-                                        <Link
-                                            href={route('register')}
-                                            className="w-full max-w-xs rounded-md border border-primary px-5 py-2 text-center text-sm font-medium text-primary transition hover:bg-primary/10 dark:border-primary-light dark:text-primary-light dark:hover:bg-primary-light/10"
-                                        >
-                                            Créer un compte
-                                        </Link>
-                                    </>
-                                )}
+                                <Link
+                                    href={route('login')}
+                                    className="w-full max-w-xs rounded-md bg-primary px-5 py-2 text-center text-sm font-medium text-white shadow-sm transition hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary"
+                                >
+                                    Se connecter
+                                </Link>
+                                <Link
+                                    href={route('register')}
+                                    className="w-full max-w-xs rounded-md border border-primary px-5 py-2 text-center text-sm font-medium text-primary transition hover:bg-primary/10 dark:border-primary-light dark:text-primary-light dark:hover:bg-primary-light/10"
+                                >
+                                    Créer un compte
+                                </Link>
                             </div>
                         </div>
                     </div>

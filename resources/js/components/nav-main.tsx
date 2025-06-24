@@ -14,11 +14,10 @@ export function NavMain({ items = [] }: { items: NavItem[] }) {
                             asChild 
                             isActive={page.url.startsWith(item.href)} 
                             tooltip={{ children: item.title }}
-                            className="h-20 text-2xl px-8 [&_svg]:w-20 [&_svg]:h-20"
                         >
                             <Link href={item.href} prefetch>
                                 {item.icon && <item.icon />}
-                                <span className="ml-6">{item.title}</span>
+                                <span className="ml-4">{item.title}</span>
                             </Link>
                         </SidebarMenuButton>
                     </SidebarMenuItem>
