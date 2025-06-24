@@ -26,14 +26,14 @@ export default function Welcome() {
                 <main className="flex grow items-center justify-center px-6 lg:px-8">
                     <div className="flex w-full max-w-[335px] flex-col-reverse lg:max-w-4xl lg:flex-row lg:items-center lg:justify-between">
                         <img
-                            src="/level-up.svg"
+                            src="/level-up.svg" 
                             alt="Illustration Level Up"
                             className="w-full max-w-xs lg:max-w-md"
                         />
                         <div className="text-center lg:ml-12 lg:text-left">
                             <h1 className="mb-6 text-3xl font-semibold">
                                 Commencez dès maintenant à <br />
-                                <span className="text-primary dark:text-primary-light">Level Up !</span> votre vie
+                                <span className="text-accent dark:text-accent-light">Level Up !</span> votre vie
                             </h1>
 
                             <div className="flex flex-col items-center gap-3 lg:items-start">
