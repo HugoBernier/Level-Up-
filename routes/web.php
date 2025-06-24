@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -8,9 +9,24 @@ Route::get('/', function () {
 })->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('dashboard', function () {
-        return Inertia::render('dashboard');
-    })->name('dashboard')->can('view-dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard')->can('view-dashboard');
+
+    Route::get('/explorer', function () {
+        return Inertia::render('explorer');
+    })->name('explorer')->can('view-explorer');
+
+    Route::get('/classement', function () {
+        return Inertia::render('classement');
+    })->name('classement')->can('view-explorer');
+
+    Route::get('/options', function () {
+        return Inertia::render('options');
+    })->name('options')->can('view-explorer');
+
+    Route::get('/aide', function () {
+        return Inertia::render('aide');
+    })->name('aide')->can('view-explorer');
+
 });
 
 require __DIR__.'/settings.php';

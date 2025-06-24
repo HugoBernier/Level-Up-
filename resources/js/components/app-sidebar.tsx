@@ -4,14 +4,34 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, Settings as SettingsIcon, HelpCircle, Trophy } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Dashboard',
+        title: 'Mes Quêtes',
         href: '/dashboard',
         icon: LayoutGrid,
+    },
+    {
+        title: 'Explorer',
+        href: '/explorer',
+        icon: Folder,
+    },
+    {
+        title: 'Classement',
+        href: '/classement',
+        icon: Trophy,
+    },
+    {
+        title: 'Options',
+        href: '/options',
+        icon: SettingsIcon,
+    },
+    {
+        title: 'Aide',
+        href: '/aide',
+        icon: HelpCircle,
     },
 ];
 
