@@ -21,6 +21,6 @@ class AssignDefaultRole
      */
     public function handle(Registered $event)
     {
-        $event->user->assignRole('User');
+        $event->user->assignRole('user');
     }
 }
