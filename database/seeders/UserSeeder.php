@@ -29,10 +29,12 @@ class UserSeeder extends Seeder
         $admin->assignRole('admin');
         $admin->themes()->attach($themes->random(rand(1, 3))->pluck('id')->toArray());
 
-        // Création d'utilisateurs classiques
-        User::factory()->count(20)->create([
+        // Création de 100 utilisateurs classiques avec un niveau aléatoire
+        User::factory()->count(100)->create([
             'level_id' => $levels->random()->id,
-        ])->each(function ($user) use ($themes) {
+        ])->each(function ($user) use ($themes, $levels) {
+            $user->level_id = $levels->random()->id;
+            $user->save();
             $user->themes()->attach($themes->random(rand(1, 3))->pluck('id')->toArray());
         });
     }
