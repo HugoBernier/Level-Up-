@@ -37,18 +37,29 @@ export default function Welcome() {
                             </h1>
 
                             <div className="flex flex-col items-center gap-3 lg:items-start">
-                                <Link
-                                    href={route('login')}
-                                    className="w-full max-w-xs rounded-md bg-primary px-5 py-2 text-center text-sm font-medium text-white shadow-sm transition hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary"
-                                >
-                                    Se connecter
-                                </Link>
-                                <Link
-                                    href={route('register')}
-                                    className="w-full max-w-xs rounded-md border border-primary px-5 py-2 text-center text-sm font-medium text-primary transition hover:bg-primary/10 dark:border-primary-light dark:text-primary-light dark:hover:bg-primary-light/10"
-                                >
-                                    Créer un compte
-                                </Link>
+                                {auth && auth.user ? (
+                                    <Link
+                                        href={route('dashboard')}
+                                        className="w-full max-w-xs rounded-md bg-primary px-5 py-2 text-center text-sm font-medium text-white shadow-sm transition hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary"
+                                    >
+                                        Aller au dashboard
+                                    </Link>
+                                ) : (
+                                    <>
+                                        <Link
+                                            href={route('login')}
+                                            className="w-full max-w-xs rounded-md bg-primary px-5 py-2 text-center text-sm font-medium text-white shadow-sm transition hover:bg-primary-dark dark:bg-primary-light dark:hover:bg-primary"
+                                        >
+                                            Se connecter
+                                        </Link>
+                                        <Link
+                                            href={route('register')}
+                                            className="w-full max-w-xs rounded-md border border-primary px-5 py-2 text-center text-sm font-medium text-primary transition hover:bg-primary/10 dark:border-primary-light dark:text-primary-light dark:hover:bg-primary-light/10"
+                                        >
+                                            Créer un compte
+                                        </Link>
+                                    </>
+                                )}
                             </div>
                         </div>
                     </div>
