@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ClassementController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,9 +16,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('explorer');
     })->name('explorer')->can('view-explorer');
 
-    Route::get('/classement', function () {
-        return Inertia::render('classement');
-    })->name('classement')->can('view-explorer');
+    Route::get('/classement', [ClassementController::class, 'index'])->name('classement')->can('view-explorer');
 
     Route::get('/options', function () {
         return Inertia::render('options');
