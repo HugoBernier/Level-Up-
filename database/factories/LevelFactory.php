@@ -17,8 +17,7 @@ class LevelFactory extends Factory
     public function definition(): array
     {
         static $level = 1;
-        static $xp = 0;
-        $xp += 100 * $level;
+        $xp = $level === 1 ? 0 : ($level - 1) * 100;
         return [
             'level_number' => $level++,
             'xp_required' => $xp,
