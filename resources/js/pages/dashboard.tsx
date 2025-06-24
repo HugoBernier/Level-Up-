@@ -42,6 +42,9 @@ export default function Dashboard({ quests }: DashboardProps) {
         <AppLayout breadcrumbs={breadcrumbs}>
             <Head title="Dashboard" />
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4 overflow-x-auto">
+                <div className="flex items-center justify-between mb-6">
+                    <h1 className="text-5xl font-extrabold tracking-tight text-center w-full">Mes Quêtes</h1>
+                </div>
                 <div className="grid auto-rows-min gap-4 md:grid-cols-3">
                     {quests.map((quest) => (
                         <QuestCard

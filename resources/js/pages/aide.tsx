@@ -6,7 +6,7 @@ export default function Aide() {
         <AppLayout>
             <Head title="Aide" />
             <div className="flex flex-col items-center justify-center h-full p-8">
-                <h1 className="text-4xl font-bold mb-4">Aide</h1>
+                <h1 className="text-5xl font-extrabold mb-4 text-center w-full">Aide</h1>
                 <p className="text-lg text-gray-600 dark:text-gray-300">Besoin d'aide ? Retrouvez ici toutes les informations utiles.</p>
             </div>
         </AppLayout>
