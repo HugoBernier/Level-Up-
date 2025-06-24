@@ -1,6 +1,11 @@
 import React from 'react';
 
-export function InertiaPagination({ meta }: { meta: any }) {
+type PaginationMeta = {
+  prev_page_url: string | null;
+  next_page_url: string | null;
+};
+
+export function InertiaPagination({ meta }: { meta: PaginationMeta }) {
   return (
     <div className="flex gap-2">
       {meta.prev_page_url && (
