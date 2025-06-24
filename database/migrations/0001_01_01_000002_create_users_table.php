@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('xp')->default(0);
             $table->unsignedInteger('streak')->default(0);
+            $table->foreignId('level_id')->nullable()->constrained()->onDelete('set null');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

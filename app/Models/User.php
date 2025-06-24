@@ -46,4 +46,28 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * Les thèmes suivis par l'utilisateur.
+     */
+    public function themes()
+    {
+        return $this->belongsToMany(Theme::class);
+    }
+
+    /**
+     * Les quêtes complétées par l'utilisateur.
+     */
+    public function userQuests()
+    {
+        return $this->hasMany(UserQuest::class);
+    }
+
+    /**
+     * Le niveau de l'utilisateur.
+     */
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
 }
